@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
   ],
+  exports :[ DivsionComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

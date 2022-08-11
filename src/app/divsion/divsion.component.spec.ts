@@ -1,16 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DivsionComponent } from './divsion.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 describe('DivsionComponent', () => {
   let component: DivsionComponent;
   let fixture: ComponentFixture<DivsionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DivsionComponent ]
+      imports: [
+        ReactiveFormsModule
+      ],
+      declarations: [DivsionComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -24,19 +29,21 @@ describe('DivsionComponent', () => {
   });
 
   it('form should be invalid', async(() => {
-    component.calcForm.controls['input1'].setValue('');
-    component.calcForm.controls['input1'].setValue('');
+    component.calcForm.get('input2').setValue('abc');
+    component.calcForm.get('input2').setValue('abc');
     expect(component.calcForm.valid).toBeFalsy();
-
-    // update view, once the values are entered
     fixture.detectChanges();
-}));
-it('form should be valid', async(() => {
-  component.calcForm.controls['input1'].setValue('24');
-  component.calcForm.controls['input1'].setValue('12');
-  expect(component.calcForm.valid).toBeTruthy();
-
-  // update view, once the values are entered
-  fixture.detectChanges();
-}));
+  }));
+  it('form should be required', async(() => {
+    component.calcForm.get('input1').setValue('');
+    component.calcForm.get('input2').setValue('');
+    expect(component.calcForm.valid).toBeFalsy();
+    fixture.detectChanges();
+  }));
+  it('form should be valid', async(() => {
+    component.calcForm.get('input1').setValue('24');
+    component.calcForm.get('input2').setValue('12');
+    expect(component.calcForm.valid).toBeTruthy();
+    fixture.detectChanges();
+  }));
 });
