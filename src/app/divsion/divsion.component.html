@@ -3,51 +3,104 @@
 </header>
 
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
-            <form [formGroup]="calcForm">
-
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="name">input1:</label>
-                        <input type="text" formControlName="input1" id="input1" class="form-control"
-                            placeholder="input1" (keyup)="keyup($event)"
-                            [ngClass]="{ 'is-invalid': calcForm.get('input1').touched && calcForm.get('input1').errors, 'is-valid': calcForm.get('input1').valid }">
-                        <div *ngIf="calcForm.get('input1').touched && calcForm.get('input1').errors"
-                            class="invalid-feedback">
-                            <div *ngIf="calcForm.get('input1').errors['required']">input1 is required!</div>
-                        </div>
-                        <div *ngIf="calcForm.get('input1').touched && !calcForm.get('input1').valid"
-                            class="invalid-feedback">
-                            <div *ngIf="calcForm.get('input1').errors && calcForm.get('input1').value.length >0">Input1
-                                is invalid!</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="name">input2:</label>
-                        <input type="text" formControlName="input2" id="input2" class="form-control"
-                            placeholder="input2" (keyup)="keyup($event)"
-                            [ngClass]="{ 'is-invalid': calcForm.get('input2').touched && calcForm.get('input2').errors, 'is-valid': calcForm.get('input2').valid }">
-                        <div *ngIf="calcForm.get('input2').touched && calcForm.get('input2').errors"
-                            class="invalid-feedback">
-                            <div *ngIf="calcForm.get('input2').errors['required']">input2 is required!</div>
-                        </div>
-                        <div *ngIf="calcForm.get('input2').touched && !calcForm.get('input2').valid"
-                            class="invalid-feedback">
-                            <div *ngIf="calcForm.get('input2').errors && calcForm.get('input2').value.length >0">input2
-                                is invalid!</div>
-                        </div>
-                    </div>
-                </div>
-
-                <br />
-                <p>
-                    The Result is :<br />
-                    <span *ngIf="this.quotient">{{ this.quotient }}</span>
-                </p>
-            </form>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
+      <form [formGroup]="calcForm">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label for="name">input1:</label>
+            <input
+              type="text"
+              formControlName="input1"
+              id="input1"
+              class="form-control"
+              placeholder="input1"
+              (keyup)="keyup($event)"
+              [ngClass]="{
+                'is-invalid':
+                  calcForm.get('input1').touched &&
+                  calcForm.get('input1').errors,
+                'is-valid': calcForm.get('input1').valid
+              }"
+            />
+            <div
+              *ngIf="
+                calcForm.get('input1').touched && calcForm.get('input1').errors
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="calcForm.get('input1').errors['required']">
+                input1 is required!
+              </div>
+            </div>
+            <div
+              *ngIf="
+                calcForm.get('input1').touched && !calcForm.get('input1').valid
+              "
+              class="invalid-feedback"
+            >
+              <div
+                *ngIf="
+                  calcForm.get('input1').errors &&
+                  calcForm.get('input1').value.length > 0
+                "
+              >
+                Input1 is invalid!
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <label for="name">input2:</label>
+            <input
+              type="text"
+              formControlName="input2"
+              id="input2"
+              class="form-control"
+              placeholder="input2"
+              (keyup)="keyup($event)"
+              [ngClass]="{
+                'is-invalid':
+                  calcForm.get('input2').touched &&
+                  calcForm.get('input2').errors,
+                'is-valid': calcForm.get('input2').valid
+              }"
+            />
+            <div
+              *ngIf="
+                calcForm.get('input2').touched && calcForm.get('input2').errors
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="calcForm.get('input2').errors['required']">
+                input2 is required!
+              </div>
+            </div>
+            <div
+              *ngIf="
+                calcForm.get('input2').touched && !calcForm.get('input2').valid
+              "
+              class="invalid-feedback"
+            >
+              <div
+                *ngIf="
+                  calcForm.get('input2').errors &&
+                  calcForm.get('input2').value.length > 0
+                "
+              >
+                input2 is invalid!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <p>
+          The Result is :<br />
+          <span *ngIf="this.quotient">{{ this.quotient }}</span>
+        </p>
+      </form>
     </div>
+  </div>
 </div>
