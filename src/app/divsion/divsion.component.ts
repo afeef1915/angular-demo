@@ -35,9 +35,9 @@ export class DivsionComponent implements OnInit, OnDestroy {
         this.calcForm.get('input1').valueChanges,
         this.calcForm.get('input2').valueChanges
       ).pipe(debounceTime(500))
-      .subscribe((res: any) => {
-        this.calculateResult();
-      });
+        .subscribe((res: any) => {
+          this.calculateResult();
+        });
     }
   }
 
@@ -55,7 +55,9 @@ export class DivsionComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub1.unsubscribe();
+    if (this.sub1) {
+      this.sub1.unsubscribe();
+    }
   }
 
 }
