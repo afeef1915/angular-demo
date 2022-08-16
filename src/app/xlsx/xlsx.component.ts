@@ -3,6 +3,7 @@ import * as XLSX from 'xlsx';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
+import "ag-grid-enterprise";
 @Component({
   selector: 'app-xlsx',
   templateUrl: './xlsx.component.html',
@@ -44,7 +45,7 @@ export class XlsxComponent implements OnInit {
   dynamicallyConfigureColumnsFromObject(rowData: any) {
     this.columnDefs =[];
     const keys = Object.keys(rowData[0]);
-    keys.forEach((key) => this.columnDefs.push({ field: key }));
+    keys.forEach((key) => this.columnDefs.push({ field: key, aggFunc: "sum" , valueParser: "Number(newValue)"}));
     this.colDefs = this.columnDefs;
   }
 
