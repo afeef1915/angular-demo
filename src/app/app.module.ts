@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DivsionComponent } from './divsion/divsion.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AgGridModule } from 'ag-grid-angular';
+import { XlsxComponent } from './xlsx/xlsx.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DivsionComponent
+    DivsionComponent,
+    XlsxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    AgGridModule
   ],
   exports :[ DivsionComponent],
   providers: [],
